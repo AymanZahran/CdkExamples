@@ -66,7 +66,7 @@ RUN sudo npm install -g aws-cdk && \
 
 # Install Projen
 RUN sudo npm install -g projen && \
-    echo 'alias pj="npx projen"' >> /home/gitpod/.bashrc
+    echo 'alias pj="npx projen"' >> ~/.bashrc
 
 # Install Terragrunt
 RUN wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.36.3/terragrunt_linux_arm64 && \
@@ -83,7 +83,7 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s
     chmod +x ./kubectl && \
     sudo mv ./kubectl /usr/local/bin/kubectl && \
     mkdir ~/.kube && \
-    echo 'alias k="kubectl"' >> /home/gitpod/.bashrc
+    echo 'alias k="kubectl"' >> ~/.bashrc
 
 ## Install Helm
 RUN curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 && \
@@ -101,7 +101,7 @@ RUN set -x; cd "$(mktemp -d)" && \
     tar zxvf "${KREW}.tar.gz" && \
     ./"${KREW}" install krew && \
     export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH" && \
-    echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> /home/gitpod/.bashrc && \
+    echo 'export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"' >> ~/.bashrc && \
     kubectl krew install neat && \
     kubectl krew install access-matrix && \
     kubectl krew install advise-psp && \
