@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PipelineStage = void 0;
+const serverless_stack_1 = require("./serverless-stack");
+const aws_cdk_lib_1 = require("aws-cdk-lib");
+class PipelineStage extends aws_cdk_lib_1.Stage {
+    constructor(scope, id, props) {
+        super(scope, id, props);
+        new serverless_stack_1.ServerlessStack(this, 'ServerlessApp');
+    }
+}
+exports.PipelineStage = PipelineStage;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicGlwZWxpbmUtc3RhZ2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJwaXBlbGluZS1zdGFnZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSx5REFBcUQ7QUFDckQsNkNBQWdEO0FBR2hELE1BQWEsYUFBYyxTQUFRLG1CQUFLO0lBQ3BDLFlBQVksS0FBZ0IsRUFBRSxFQUFVLEVBQUUsS0FBa0I7UUFDeEQsS0FBSyxDQUFDLEtBQUssRUFBRSxFQUFFLEVBQUUsS0FBSyxDQUFDLENBQUM7UUFFeEIsSUFBSSxrQ0FBZSxDQUFDLElBQUksRUFBRSxlQUFlLENBQUMsQ0FBQztJQUMvQyxDQUFDO0NBQ0o7QUFORCxzQ0FNQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFNlcnZlcmxlc3NTdGFjayB9IGZyb20gJy4vc2VydmVybGVzcy1zdGFjayc7XG5pbXBvcnQgeyBTdGFnZSwgU3RhZ2VQcm9wcyB9IGZyb20gJ2F3cy1jZGstbGliJztcbmltcG9ydCB7IENvbnN0cnVjdCB9IGZyb20gJ2NvbnN0cnVjdHMnO1xuXG5leHBvcnQgY2xhc3MgUGlwZWxpbmVTdGFnZSBleHRlbmRzIFN0YWdlIHtcbiAgICBjb25zdHJ1Y3RvcihzY29wZTogQ29uc3RydWN0LCBpZDogc3RyaW5nLCBwcm9wcz86IFN0YWdlUHJvcHMpIHtcbiAgICAgICAgc3VwZXIoc2NvcGUsIGlkLCBwcm9wcyk7XG5cbiAgICAgICAgbmV3IFNlcnZlcmxlc3NTdGFjayh0aGlzLCAnU2VydmVybGVzc0FwcCcpO1xuICAgIH1cbn1cbiJdfQ==

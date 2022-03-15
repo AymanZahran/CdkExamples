@@ -1,0 +1,26 @@
+image: aymanzahran/ipad-gitpod-image:latest
+  # file: .gitpod.Dockerfile
+tasks:
+  - name: persist env
+    command: eval $(gp env -e)
+  - name: Configure AWS Profile
+    command: |
+      echo "[gitpod]" >> ~/.aws/config
+      echo "region = $AWS_DEFAULT_REGION" >> ~/.aws/config
+      echo "cli_auto_prompt = on-partial" >> ~/.aws/config
+      echo "[gitpod]" >> ~/.aws/credentials
+      echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> ~/.aws/credentials
+      echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/credentials
+  - name: CDK bootstrap
+    command: |
+      if [[ "$ENABLE_CDK_BOOTSTRAP" == TRUE ]]
+      then
+        cdk bootstrap aws://$AWS_ACCOUNT_NUMBER/$AWS_DEFAULT_REGION
+      fi
+vscode:
+  extensions:
+    - ms-azuretools.vscode-docker
+    - ms-kubernetes-tools.vscode-kubernetes-tools
+    - amazonwebservices.aws-toolkit-vscode
+    - ms-toolsai.jupyter
+    - vscjava.vscode-java-pack

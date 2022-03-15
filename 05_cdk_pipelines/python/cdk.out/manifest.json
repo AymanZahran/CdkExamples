@@ -1,0 +1,233 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "assembly-cdk-pipelines-Deploy": {
+      "type": "cdk:cloud-assembly",
+      "properties": {
+        "directoryName": "assembly-cdk-pipelines-Deploy",
+        "displayName": "cdk-pipelines/Deploy"
+      }
+    },
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "cdk-pipelines.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "cdk-pipelines.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "cdk-pipelines": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "cdk-pipelines.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/c84be678d6dfbe56100257a467e893351e50cc1a7d518f127d0fb78a721b369e.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "cdk-pipelines.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        }
+      },
+      "dependencies": [
+        "cdk-pipelines.assets"
+      ],
+      "metadata": {
+        "/cdk-pipelines/AymanRepoCDK/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanRepoCDK8F638138"
+          }
+        ],
+        "/cdk-pipelines/AymanRepoCDK/cdkpipelinesAymanPipelineCDKPipeline49973BF2EventRule/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanRepoCDKcdkpipelinesAymanPipelineCDKPipeline49973BF2EventRuleB15353EF"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/ArtifactsBucket/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineArtifactsBucket33E4858D"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/ArtifactsBucket/Policy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineArtifactsBucketPolicy9580E938"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineRole9EA7F64F"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineRoleDefaultPolicyAD2FE96B"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipeline0DE64F82"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Source/CodeCommit/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineSourceCodeCommitCodePipelineActionRole71531ECD"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Source/CodeCommit/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineSourceCodeCommitCodePipelineActionRoleDefaultPolicy1EDCB5D0"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/EventsRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineEventsRole3AB2E8A7"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/EventsRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineEventsRoleDefaultPolicyAF702423"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Build/Synth/CdkBuildProject/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineBuildSynthCdkBuildProjectRole83F3E5BA"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Build/Synth/CdkBuildProject/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineBuildSynthCdkBuildProjectRoleDefaultPolicyED37CA00"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Build/Synth/CdkBuildProject/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineBuildSynthCdkBuildProject76B2FEE9"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Build/Synth/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineBuildSynthCodePipelineActionRoleA0ED16A3"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Build/Synth/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineBuildSynthCodePipelineActionRoleDefaultPolicy0864D741"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineUpdatePipelineSelfMutateCodePipelineActionRoleFC0A9D33"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineUpdatePipelineSelfMutateCodePipelineActionRoleDefaultPolicy0A81D4FF"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Assets/FileAsset1/CodePipelineActionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineAssetsFileAsset1CodePipelineActionRole614D4BF0"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Pipeline/Assets/FileAsset1/CodePipelineActionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKPipelineAssetsFileAsset1CodePipelineActionRoleDefaultPolicy6136466F"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/UpdatePipeline/SelfMutation/Role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKUpdatePipelineSelfMutationRole936D12D0"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/UpdatePipeline/SelfMutation/Role/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKUpdatePipelineSelfMutationRoleDefaultPolicy317C696B"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/UpdatePipeline/SelfMutation/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKUpdatePipelineSelfMutationE9EEF70F"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Assets/FileRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKAssetsFileRoleFC9D3E13"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Assets/FileRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKAssetsFileRoleDefaultPolicy710A3E28"
+          }
+        ],
+        "/cdk-pipelines/AymanPipelineCDK/Assets/FileAsset1/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AymanPipelineCDKAssetsFileAsset1CA9ECF9C"
+          }
+        ],
+        "/cdk-pipelines/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/cdk-pipelines/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/cdk-pipelines/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/cdk-pipelines/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "cdk-pipelines"
+    }
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "cdkpipelinesServerlessStageServerlessStackF30B6417.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "cdkpipelinesServerlessStageServerlessStackF30B6417.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "cdkpipelinesServerlessStageServerlessStackF30B6417": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "cdkpipelinesServerlessStageServerlessStackF30B6417.template.json",
+        "validateOnSynth": true,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/84514a896c0f6b7d28553583d20728c130e15013481a3f22fdcd69613f0b6905.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "cdkpipelinesServerlessStageServerlessStackF30B6417.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "ServerlessStage-ServerlessStack"
+      },
+      "dependencies": [
+        "cdkpipelinesServerlessStageServerlessStackF30B6417.assets"
+      ],
+      "metadata": {
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/HelloHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHandlerServiceRole11EF7C63"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/HelloHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHandler2E4FBA4D"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/HelloHitCounter/Hits/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHitCounterHits7AAEBF80"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/HelloHitCounter/HitCountHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHitCounterHitCountHandlerServiceRole42AAF829"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/HelloHitCounter/HitCountHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHitCounterHitCountHandlerServiceRoleDefaultPolicy0295D032"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/HelloHitCounter/HitCountHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHitCounterHitCountHandler2475EAC2"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointEEF1FD8F"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointCloudWatchRoleC3C64E0F"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointAccountB8304247"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointDeployment318525DA3613518ef654cdde205d2d61f29528d3"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointDeploymentStageprodB78BEEA0"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Endpoint8024A810"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Default/{proxy+}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Endpointproxy39E2174E"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Default/{proxy+}/ANY/ApiPermission.cdkpipelinesServerlessStageServerlessStackEndpointFEE359D6.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointproxyANYApiPermissioncdkpipelinesServerlessStageServerlessStackEndpointFEE359D6ANYproxyC6902435"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Default/{proxy+}/ANY/ApiPermission.Test.cdkpipelinesServerlessStageServerlessStackEndpointFEE359D6.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointproxyANYApiPermissionTestcdkpipelinesServerlessStageServerlessStackEndpointFEE359D6ANYproxyFB45ABC1"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Default/{proxy+}/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointproxyANYC09721C5"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Default/ANY/ApiPermission.cdkpipelinesServerlessStageServerlessStackEndpointFEE359D6.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointANYApiPermissioncdkpipelinesServerlessStageServerlessStackEndpointFEE359D6ANYDEDF7E5B"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Default/ANY/ApiPermission.Test.cdkpipelinesServerlessStageServerlessStackEndpointFEE359D6.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointANYApiPermissionTestcdkpipelinesServerlessStageServerlessStackEndpointFEE359D6ANY2164D864"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/Endpoint/Default/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointANY485C938B"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/cdk-pipelines/ServerlessStage/ServerlessStack/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "cdk-pipelines/ServerlessStage/ServerlessStack"
+    }
+  }
+}

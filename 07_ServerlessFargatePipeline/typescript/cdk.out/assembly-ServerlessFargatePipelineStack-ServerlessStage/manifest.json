@@ -1,0 +1,179 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "ServerlessFargatePipelineStackServerlessStageServerlessAppAFBE4B60.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ServerlessFargatePipelineStackServerlessStageServerlessAppAFBE4B60.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ServerlessFargatePipelineStackServerlessStageServerlessAppAFBE4B60": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "ServerlessFargatePipelineStackServerlessStageServerlessAppAFBE4B60.template.json",
+        "validateOnSynth": true,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/9dc6bcb98b5d36bf0858183e0aa896a04b05752f54ba2eebb0393fa3bcaf407a.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ServerlessFargatePipelineStackServerlessStageServerlessAppAFBE4B60.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "ServerlessStage-ServerlessApp"
+      },
+      "dependencies": [
+        "ServerlessFargatePipelineStackServerlessStageServerlessAppAFBE4B60.assets"
+      ],
+      "metadata": {
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/HelloHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHandlerServiceRole11EF7C63"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/HelloHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHandler2E4FBA4D"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/HelloHitCounter/Hits/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHitCounterHits7AAEBF80"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/HelloHitCounter/HitCounterHandler/ServiceRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHitCounterHitCounterHandlerServiceRoleD45002B8"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/HelloHitCounter/HitCounterHandler/ServiceRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHitCounterHitCounterHandlerServiceRoleDefaultPolicy1487A60A"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/HelloHitCounter/HitCounterHandler/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "HelloHitCounterHitCounterHandlerDAEA7B37"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointEEF1FD8F"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/CloudWatchRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointCloudWatchRoleC3C64E0F"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Account": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointAccountB8304247"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Deployment/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointDeployment318525DA9104bb68ff03e54317bc7dd4ade4c9c0"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/DeploymentStage.prod/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointDeploymentStageprodB78BEEA0"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Endpoint": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Endpoint8024A810"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Default/{proxy+}/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Endpointproxy39E2174E"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Default/{proxy+}/ANY/ApiPermission.ServerlessFargatePipelineStackServerlessStageServerlessAppEndpoint042717AD.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointproxyANYApiPermissionServerlessFargatePipelineStackServerlessStageServerlessAppEndpoint042717ADANYproxy3287FDD1"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Default/{proxy+}/ANY/ApiPermission.Test.ServerlessFargatePipelineStackServerlessStageServerlessAppEndpoint042717AD.ANY..{proxy+}": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointproxyANYApiPermissionTestServerlessFargatePipelineStackServerlessStageServerlessAppEndpoint042717ADANYproxy4DF63F28"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Default/{proxy+}/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointproxyANYC09721C5"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Default/ANY/ApiPermission.ServerlessFargatePipelineStackServerlessStageServerlessAppEndpoint042717AD.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointANYApiPermissionServerlessFargatePipelineStackServerlessStageServerlessAppEndpoint042717ADANYC6FB357D"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Default/ANY/ApiPermission.Test.ServerlessFargatePipelineStackServerlessStageServerlessAppEndpoint042717AD.ANY..": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointANYApiPermissionTestServerlessFargatePipelineStackServerlessStageServerlessAppEndpoint042717ADANYEAD0C602"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/Endpoint/Default/ANY/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "EndpointANY485C938B"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ServerlessFargatePipelineStack/ServerlessStage/ServerlessApp"
+    }
+  }
+}

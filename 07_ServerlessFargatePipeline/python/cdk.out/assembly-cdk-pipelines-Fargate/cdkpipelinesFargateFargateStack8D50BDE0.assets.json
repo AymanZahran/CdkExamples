@@ -1,0 +1,19 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "91ae1aacd3359c9dce48e76828d82cbaf4affb4a55870c4d060f94c487115108": {
+      "source": {
+        "path": "cdkpipelinesFargateFargateStack8D50BDE0.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "91ae1aacd3359c9dce48e76828d82cbaf4affb4a55870c4d060f94c487115108.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

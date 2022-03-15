@@ -1,0 +1,1079 @@
+{
+  "Resources": {
+    "TheVPC92636AB0": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/Resource"
+      }
+    },
+    "TheVPCPublicSubnet1Subnet770D4FF2": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.0.0/18",
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet1/Subnet"
+      }
+    },
+    "TheVPCPublicSubnet1RouteTable17DA183D": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet1/RouteTable"
+      }
+    },
+    "TheVPCPublicSubnet1RouteTableAssociationE5186D77": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "TheVPCPublicSubnet1RouteTable17DA183D"
+        },
+        "SubnetId": {
+          "Ref": "TheVPCPublicSubnet1Subnet770D4FF2"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet1/RouteTableAssociation"
+      }
+    },
+    "TheVPCPublicSubnet1DefaultRoute6D26543F": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "TheVPCPublicSubnet1RouteTable17DA183D"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "TheVPCIGWFA25CC08"
+        }
+      },
+      "DependsOn": [
+        "TheVPCVPCGWC9B93E30"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet1/DefaultRoute"
+      }
+    },
+    "TheVPCPublicSubnet1EIP4412F690": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet1/EIP"
+      }
+    },
+    "TheVPCPublicSubnet1NATGatewayC61D892B": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "TheVPCPublicSubnet1Subnet770D4FF2"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "TheVPCPublicSubnet1EIP4412F690",
+            "AllocationId"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PublicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet1/NATGateway"
+      }
+    },
+    "TheVPCPublicSubnet2Subnet73F96DA9": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.64.0/18",
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet2/Subnet"
+      }
+    },
+    "TheVPCPublicSubnet2RouteTable3609F42C": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet2/RouteTable"
+      }
+    },
+    "TheVPCPublicSubnet2RouteTableAssociationB4B0A733": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "TheVPCPublicSubnet2RouteTable3609F42C"
+        },
+        "SubnetId": {
+          "Ref": "TheVPCPublicSubnet2Subnet73F96DA9"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet2/RouteTableAssociation"
+      }
+    },
+    "TheVPCPublicSubnet2DefaultRouteFEB062B2": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "TheVPCPublicSubnet2RouteTable3609F42C"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "TheVPCIGWFA25CC08"
+        }
+      },
+      "DependsOn": [
+        "TheVPCVPCGWC9B93E30"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet2/DefaultRoute"
+      }
+    },
+    "TheVPCPublicSubnet2EIP5AAFF9FA": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet2/EIP"
+      }
+    },
+    "TheVPCPublicSubnet2NATGatewayB437CFAF": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "TheVPCPublicSubnet2Subnet73F96DA9"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "TheVPCPublicSubnet2EIP5AAFF9FA",
+            "AllocationId"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PublicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PublicSubnet2/NATGateway"
+      }
+    },
+    "TheVPCPrivateSubnet1Subnet571D3690": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.128.0/18",
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            0,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PrivateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PrivateSubnet1/Subnet"
+      }
+    },
+    "TheVPCPrivateSubnet1RouteTableF6513BC2": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PrivateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PrivateSubnet1/RouteTable"
+      }
+    },
+    "TheVPCPrivateSubnet1RouteTableAssociation46F1FFFC": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "TheVPCPrivateSubnet1RouteTableF6513BC2"
+        },
+        "SubnetId": {
+          "Ref": "TheVPCPrivateSubnet1Subnet571D3690"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PrivateSubnet1/RouteTableAssociation"
+      }
+    },
+    "TheVPCPrivateSubnet1DefaultRouteD1B9E467": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "TheVPCPrivateSubnet1RouteTableF6513BC2"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "TheVPCPublicSubnet1NATGatewayC61D892B"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PrivateSubnet1/DefaultRoute"
+      }
+    },
+    "TheVPCPrivateSubnet2SubnetCC3D7013": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.0.192.0/18",
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "AvailabilityZone": {
+          "Fn::Select": [
+            1,
+            {
+              "Fn::GetAZs": ""
+            }
+          ]
+        },
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "Private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PrivateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PrivateSubnet2/Subnet"
+      }
+    },
+    "TheVPCPrivateSubnet2RouteTable9AC81FAC": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC/PrivateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PrivateSubnet2/RouteTable"
+      }
+    },
+    "TheVPCPrivateSubnet2RouteTableAssociation336D47D1": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "TheVPCPrivateSubnet2RouteTable9AC81FAC"
+        },
+        "SubnetId": {
+          "Ref": "TheVPCPrivateSubnet2SubnetCC3D7013"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PrivateSubnet2/RouteTableAssociation"
+      }
+    },
+    "TheVPCPrivateSubnet2DefaultRoute52A1F245": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "TheVPCPrivateSubnet2RouteTable9AC81FAC"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "TheVPCPublicSubnet2NATGatewayB437CFAF"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/PrivateSubnet2/DefaultRoute"
+      }
+    },
+    "TheVPCIGWFA25CC08": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "FargateStack/TheVPC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/IGW"
+      }
+    },
+    "TheVPCVPCGWC9B93E30": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        },
+        "InternetGatewayId": {
+          "Ref": "TheVPCIGWFA25CC08"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/TheVPC/VPCGW"
+      }
+    },
+    "ClusterEB0386A7": {
+      "Type": "AWS::ECS::Cluster",
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Cluster/Resource"
+      }
+    },
+    "ServiceLBE9A1ADBC": {
+      "Type": "AWS::ElasticLoadBalancingV2::LoadBalancer",
+      "Properties": {
+        "LoadBalancerAttributes": [
+          {
+            "Key": "deletion_protection.enabled",
+            "Value": "false"
+          }
+        ],
+        "Scheme": "internet-facing",
+        "SecurityGroups": [
+          {
+            "Fn::GetAtt": [
+              "ServiceLBSecurityGroupF7435A5C",
+              "GroupId"
+            ]
+          }
+        ],
+        "Subnets": [
+          {
+            "Ref": "TheVPCPublicSubnet1Subnet770D4FF2"
+          },
+          {
+            "Ref": "TheVPCPublicSubnet2Subnet73F96DA9"
+          }
+        ],
+        "Type": "application"
+      },
+      "DependsOn": [
+        "TheVPCPublicSubnet1DefaultRoute6D26543F",
+        "TheVPCPublicSubnet2DefaultRouteFEB062B2"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/LB/Resource"
+      }
+    },
+    "ServiceLBSecurityGroupF7435A5C": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "Automatically created Security Group for ELB FargateStackServiceLB79D51089",
+        "SecurityGroupIngress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow from anyone on port 80",
+            "FromPort": 80,
+            "IpProtocol": "tcp",
+            "ToPort": 80
+          }
+        ],
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/LB/SecurityGroup/Resource"
+      }
+    },
+    "ServiceLBSecurityGrouptoFargateStackServiceSecurityGroupDC23E73B800257FC9B": {
+      "Type": "AWS::EC2::SecurityGroupEgress",
+      "Properties": {
+        "GroupId": {
+          "Fn::GetAtt": [
+            "ServiceLBSecurityGroupF7435A5C",
+            "GroupId"
+          ]
+        },
+        "IpProtocol": "tcp",
+        "Description": "Load balancer to target",
+        "DestinationSecurityGroupId": {
+          "Fn::GetAtt": [
+            "ServiceSecurityGroupEEA09B68",
+            "GroupId"
+          ]
+        },
+        "FromPort": 80,
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/LB/SecurityGroup/to FargateStackServiceSecurityGroupDC23E73B:80"
+      }
+    },
+    "ServiceLBPublicListener46709EAA": {
+      "Type": "AWS::ElasticLoadBalancingV2::Listener",
+      "Properties": {
+        "DefaultActions": [
+          {
+            "TargetGroupArn": {
+              "Ref": "ServiceLBPublicListenerECSGroup0CC8688C"
+            },
+            "Type": "forward"
+          }
+        ],
+        "LoadBalancerArn": {
+          "Ref": "ServiceLBE9A1ADBC"
+        },
+        "Port": 80,
+        "Protocol": "HTTP"
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/LB/PublicListener/Resource"
+      }
+    },
+    "ServiceLBPublicListenerECSGroup0CC8688C": {
+      "Type": "AWS::ElasticLoadBalancingV2::TargetGroup",
+      "Properties": {
+        "Port": 80,
+        "Protocol": "HTTP",
+        "TargetGroupAttributes": [
+          {
+            "Key": "stickiness.enabled",
+            "Value": "false"
+          }
+        ],
+        "TargetType": "ip",
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/LB/PublicListener/ECSGroup/Resource"
+      }
+    },
+    "ServiceTaskDefTaskRole0CFE2F57": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/TaskDef/TaskRole/Resource"
+      }
+    },
+    "ServiceTaskDef1922A00F": {
+      "Type": "AWS::ECS::TaskDefinition",
+      "Properties": {
+        "ContainerDefinitions": [
+          {
+            "Essential": true,
+            "Image": "amazon/amazon-ecs-sample",
+            "LogConfiguration": {
+              "LogDriver": "awslogs",
+              "Options": {
+                "awslogs-group": {
+                  "Ref": "ServiceTaskDefwebLogGroup2A898F61"
+                },
+                "awslogs-stream-prefix": "Service",
+                "awslogs-region": {
+                  "Ref": "AWS::Region"
+                }
+              }
+            },
+            "Name": "web",
+            "PortMappings": [
+              {
+                "ContainerPort": 80,
+                "Protocol": "tcp"
+              }
+            ]
+          }
+        ],
+        "Cpu": "256",
+        "ExecutionRoleArn": {
+          "Fn::GetAtt": [
+            "ServiceTaskDefExecutionRole919F7BE3",
+            "Arn"
+          ]
+        },
+        "Family": "FargateStackServiceTaskDef933B28F7",
+        "Memory": "512",
+        "NetworkMode": "awsvpc",
+        "RequiresCompatibilities": [
+          "FARGATE"
+        ],
+        "TaskRoleArn": {
+          "Fn::GetAtt": [
+            "ServiceTaskDefTaskRole0CFE2F57",
+            "Arn"
+          ]
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/TaskDef/Resource"
+      }
+    },
+    "ServiceTaskDefwebLogGroup2A898F61": {
+      "Type": "AWS::Logs::LogGroup",
+      "UpdateReplacePolicy": "Retain",
+      "DeletionPolicy": "Retain",
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/TaskDef/web/LogGroup/Resource"
+      }
+    },
+    "ServiceTaskDefExecutionRole919F7BE3": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "ecs-tasks.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/TaskDef/ExecutionRole/Resource"
+      }
+    },
+    "ServiceTaskDefExecutionRoleDefaultPolicy3073559D": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "ServiceTaskDefwebLogGroup2A898F61",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "ServiceTaskDefExecutionRoleDefaultPolicy3073559D",
+        "Roles": [
+          {
+            "Ref": "ServiceTaskDefExecutionRole919F7BE3"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/TaskDef/ExecutionRole/DefaultPolicy/Resource"
+      }
+    },
+    "Service9571FDD8": {
+      "Type": "AWS::ECS::Service",
+      "Properties": {
+        "Cluster": {
+          "Ref": "ClusterEB0386A7"
+        },
+        "DeploymentConfiguration": {
+          "MaximumPercent": 200,
+          "MinimumHealthyPercent": 50
+        },
+        "DesiredCount": 2,
+        "EnableECSManagedTags": false,
+        "HealthCheckGracePeriodSeconds": 60,
+        "LaunchType": "FARGATE",
+        "LoadBalancers": [
+          {
+            "ContainerName": "web",
+            "ContainerPort": 80,
+            "TargetGroupArn": {
+              "Ref": "ServiceLBPublicListenerECSGroup0CC8688C"
+            }
+          }
+        ],
+        "NetworkConfiguration": {
+          "AwsvpcConfiguration": {
+            "AssignPublicIp": "DISABLED",
+            "SecurityGroups": [
+              {
+                "Fn::GetAtt": [
+                  "ServiceSecurityGroupEEA09B68",
+                  "GroupId"
+                ]
+              }
+            ],
+            "Subnets": [
+              {
+                "Ref": "TheVPCPrivateSubnet1Subnet571D3690"
+              },
+              {
+                "Ref": "TheVPCPrivateSubnet2SubnetCC3D7013"
+              }
+            ]
+          }
+        },
+        "TaskDefinition": {
+          "Ref": "ServiceTaskDef1922A00F"
+        }
+      },
+      "DependsOn": [
+        "ServiceLBPublicListenerECSGroup0CC8688C",
+        "ServiceLBPublicListener46709EAA"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/Service/Service"
+      }
+    },
+    "ServiceSecurityGroupEEA09B68": {
+      "Type": "AWS::EC2::SecurityGroup",
+      "Properties": {
+        "GroupDescription": "FargateStack/Service/Service/SecurityGroup",
+        "SecurityGroupEgress": [
+          {
+            "CidrIp": "0.0.0.0/0",
+            "Description": "Allow all outbound traffic by default",
+            "IpProtocol": "-1"
+          }
+        ],
+        "VpcId": {
+          "Ref": "TheVPC92636AB0"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/Service/SecurityGroup/Resource"
+      }
+    },
+    "ServiceSecurityGroupfromFargateStackServiceLBSecurityGroup75FF4ADD80A1BF95FB": {
+      "Type": "AWS::EC2::SecurityGroupIngress",
+      "Properties": {
+        "IpProtocol": "tcp",
+        "Description": "Load balancer to target",
+        "FromPort": 80,
+        "GroupId": {
+          "Fn::GetAtt": [
+            "ServiceSecurityGroupEEA09B68",
+            "GroupId"
+          ]
+        },
+        "SourceSecurityGroupId": {
+          "Fn::GetAtt": [
+            "ServiceLBSecurityGroupF7435A5C",
+            "GroupId"
+          ]
+        },
+        "ToPort": 80
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/Service/Service/SecurityGroup/from FargateStackServiceLBSecurityGroup75FF4ADD:80"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/31STW/CMAz9LbuHbKBp0o6MMYSEtqpFXFGams4QkiofRajqf1+a0NGxaSe/vDzH9nMmdPxEH+7YyYx4cRgJzGmTWcYPxFPbBviENpuKk9lObpIZSVwukGcul2A77opS5SysWS7gyl+5qTGKI7Oo5Le4A/Nl0oV3ZhfMwomdSaKx9vD68FJa0B73gtjJ5TS1vtfPI0hLMuBOoz0vtHJV6OFfYl5qMOYXvZSBbwlwQ5uZcMZX71Q9fGO6ZN1U5vAKO5TYz3TLKGkZStAD7pKbga6RR58iDOW2FbPdqIZOq8q7HNxaKVa8MMEkh+ImHQQzFrnwijwoUJa1X9ff2WGIH+ehDv1s8qLp8eB+7Sv7DfRGDo4tQXakTari3kNMlM8Li4qoJUKV3s2VKr+f6HHbkhSMcjr68eFs5eJ/GrDeyyI42BKpCqB7c1+PH+n42f/cvUEcaSctHoGmMX4BmBGml9UCAAA="
+      },
+      "Metadata": {
+        "aws:cdk:path": "FargateStack/CDKMetadata/Default"
+      },
+      "Condition": "CDKMetadataAvailable"
+    }
+  },
+  "Outputs": {
+    "ServiceLoadBalancerDNSEC5B149E": {
+      "Value": {
+        "Fn::GetAtt": [
+          "ServiceLBE9A1ADBC",
+          "DNSName"
+        ]
+      }
+    },
+    "ServiceServiceURL250C0FB6": {
+      "Value": {
+        "Fn::Join": [
+          "",
+          [
+            "http://",
+            {
+              "Fn::GetAtt": [
+                "ServiceLBE9A1ADBC",
+                "DNSName"
+              ]
+            }
+          ]
+        ]
+      }
+    }
+  },
+  "Conditions": {
+    "CDKMetadataAvailable": {
+      "Fn::Or": [
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "af-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-northeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ap-southeast-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "ca-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "cn-northwest-1"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-central-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-north-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-2"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "eu-west-3"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "me-south-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "sa-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-east-2"
+              ]
+            }
+          ]
+        },
+        {
+          "Fn::Or": [
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-1"
+              ]
+            },
+            {
+              "Fn::Equals": [
+                {
+                  "Ref": "AWS::Region"
+                },
+                "us-west-2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

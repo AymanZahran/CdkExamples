@@ -1,0 +1,299 @@
+{
+  "version": "16.0.0",
+  "artifacts": {
+    "ServerlessFargatePipelineStackFargateStageFargate6B13913C.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "ServerlessFargatePipelineStackFargateStageFargate6B13913C.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "ServerlessFargatePipelineStackFargateStageFargate6B13913C": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://unknown-account/unknown-region",
+      "properties": {
+        "templateFile": "ServerlessFargatePipelineStackFargateStageFargate6B13913C.template.json",
+        "validateOnSynth": true,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-deploy-role-${AWS::AccountId}-${AWS::Region}",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-cfn-exec-role-${AWS::AccountId}-${AWS::Region}",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}/62f1150459beabc883b34d44273f934c0657ba82dd8d07c8489ec110b62a95ea.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "ServerlessFargatePipelineStackFargateStageFargate6B13913C.assets"
+        ],
+        "lookupRole": {
+          "arn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-lookup-role-${AWS::AccountId}-${AWS::Region}",
+          "requiresBootstrapStackVersion": 8,
+          "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+        },
+        "stackName": "FargateStage-Fargate"
+      },
+      "dependencies": [
+        "ServerlessFargatePipelineStackFargateStageFargate6B13913C.assets"
+      ],
+      "metadata": {
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPC92636AB0"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet1Subnet770D4FF2"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet1RouteTable17DA183D"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet1RouteTableAssociationE5186D77"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet1DefaultRoute6D26543F"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet1EIP4412F690"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet1NATGatewayC61D892B"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet2Subnet73F96DA9"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet2RouteTable3609F42C"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet2RouteTableAssociationB4B0A733"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet2DefaultRouteFEB062B2"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet2/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet2EIP5AAFF9FA"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PublicSubnet2/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPublicSubnet2NATGatewayB437CFAF"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PrivateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPrivateSubnet1Subnet571D3690"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PrivateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPrivateSubnet1RouteTableF6513BC2"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PrivateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPrivateSubnet1RouteTableAssociation46F1FFFC"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PrivateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPrivateSubnet1DefaultRouteD1B9E467"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PrivateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPrivateSubnet2SubnetCC3D7013"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PrivateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPrivateSubnet2RouteTable9AC81FAC"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PrivateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPrivateSubnet2RouteTableAssociation336D47D1"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/PrivateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCPrivateSubnet2DefaultRoute52A1F245"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCIGWFA25CC08"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/TheVPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "TheVPCVPCGWC9B93E30"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Cluster/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ClusterEB0386A7"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/LB/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceLBE9A1ADBC"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/LB/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceLBSecurityGroupF7435A5C"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/LB/SecurityGroup/to ServerlessFargatePipelineStackFargateStageFargateServiceSecurityGroup2C78DC57:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceLBSecurityGrouptoServerlessFargatePipelineStackFargateStageFargateServiceSecurityGroup2C78DC578067660201"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/LB/PublicListener/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceLBPublicListener46709EAA"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/LB/PublicListener/ECSGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceLBPublicListenerECSGroup0CC8688C"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/LoadBalancerDNS": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceLoadBalancerDNSEC5B149E"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/ServiceURL": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceServiceURL250C0FB6"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/TaskDef/TaskRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceTaskDefTaskRole0CFE2F57"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/TaskDef/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceTaskDef1922A00F"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/TaskDef/web/LogGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceTaskDefwebLogGroup2A898F61"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/TaskDef/ExecutionRole/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceTaskDefExecutionRole919F7BE3"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/TaskDef/ExecutionRole/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceTaskDefExecutionRoleDefaultPolicy3073559D"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/Service/Service": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "Service9571FDD8"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/Service/SecurityGroup/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceSecurityGroupEEA09B68"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/Service/Service/SecurityGroup/from ServerlessFargatePipelineStackFargateStageFargateServiceLBSecurityGroupB494005D:80": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "ServiceSecurityGroupfromServerlessFargatePipelineStackFargateStageFargateServiceLBSecurityGroupB494005D8040F28FBD"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/CDKMetadata/Condition": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadataAvailable"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/ServerlessFargatePipelineStack/FargateStage/Fargate/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "ServerlessFargatePipelineStack/FargateStage/Fargate"
+    }
+  }
+}

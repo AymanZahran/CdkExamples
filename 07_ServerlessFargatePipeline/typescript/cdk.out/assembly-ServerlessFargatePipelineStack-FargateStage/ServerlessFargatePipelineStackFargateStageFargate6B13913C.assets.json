@@ -1,0 +1,19 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "62f1150459beabc883b34d44273f934c0657ba82dd8d07c8489ec110b62a95ea": {
+      "source": {
+        "path": "ServerlessFargatePipelineStackFargateStageFargate6B13913C.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "62f1150459beabc883b34d44273f934c0657ba82dd8d07c8489ec110b62a95ea.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}

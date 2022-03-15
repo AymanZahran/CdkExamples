@@ -1,0 +1,32 @@
+{
+  "version": "16.0.0",
+  "files": {
+    "437396214d1c6403c3a7b54bd1f2225e31d42470922ce34e32bea77f0d4bc308": {
+      "source": {
+        "path": "../asset.437396214d1c6403c3a7b54bd1f2225e31d42470922ce34e32bea77f0d4bc308",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "437396214d1c6403c3a7b54bd1f2225e31d42470922ce34e32bea77f0d4bc308.zip",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    },
+    "9dc6bcb98b5d36bf0858183e0aa896a04b05752f54ba2eebb0393fa3bcaf407a": {
+      "source": {
+        "path": "ServerlessFargatePipelineStackServerlessStageServerlessAppAFBE4B60.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "current_account-current_region": {
+          "bucketName": "cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}",
+          "objectKey": "9dc6bcb98b5d36bf0858183e0aa896a04b05752f54ba2eebb0393fa3bcaf407a.json",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::${AWS::AccountId}:role/cdk-hnb659fds-file-publishing-role-${AWS::AccountId}-${AWS::Region}"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
