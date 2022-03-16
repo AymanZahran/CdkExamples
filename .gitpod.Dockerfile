@@ -66,7 +66,8 @@ RUN sudo npm install -g aws-cdk && \
 
 # Install Projen
 RUN sudo npm install -g projen && \
-    echo 'alias pj="npx projen"' >> ~/.bashrc
+    echo 'alias pj="npx projen"' >> ~/.bashrc && \
+    projen completion >> ~/.bashrc
 
 # Install Terragrunt
 RUN wget https://github.com/gruntwork-io/terragrunt/releases/download/v0.36.3/terragrunt_linux_arm64 && \
