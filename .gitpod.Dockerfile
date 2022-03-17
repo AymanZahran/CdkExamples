@@ -3,6 +3,10 @@ FROM gitpod/workspace-base:latest
 RUN sudo apt update -y && \
     sudo apt upgrade -y
 
+# Install Utils
+RUN sudo apt install curl && \
+    sudo apt install git
+
 # Install npm and node
 RUN sudo apt install -y npm && \
     sudo npm install -g npm@latest && \
@@ -38,7 +42,6 @@ RUN sudo apt-get install -y gpg && \
     sudo apt-get install -y apt-transport-https && \
     sudo apt-get update && \
     sudo apt-get install -y dotnet-sdk-6.0
-
 
 # Install AWS CLI
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
