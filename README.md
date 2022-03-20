@@ -21,9 +21,6 @@
 ## 7- [Serverless Fargate Cdk Pipeline]
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/AymanZahran/CdkProjenExamples/tree/master/07_ServerlessFargatePipeline)
 
-## 8- [Projen Serverless Fargate Cdk Pipeline]
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/AymanZahran/CdkProjenExamples/tree/master/08_ProjenServerlessFargatePipeline)
-
 ## Gitpod Variables
 - AWS_ACCOUNT_NUMBER: Account Number
 - AWS_DEFAULT_REGION: Account Default Region
